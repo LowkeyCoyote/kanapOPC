@@ -586,7 +586,6 @@ async function orderRequest(){
     show the number of te order
 */
 
-
 async function showOrder(){
     const str = window.location.href;
     const urlOrder = new URL(str);
