@@ -1,0 +1,4 @@
+
+renderProduct();
+addProductInCart();
+
