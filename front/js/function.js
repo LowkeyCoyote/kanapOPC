@@ -590,7 +590,6 @@ async function showOrder(){
     const str = window.location.href;
     const urlOrder = new URL(str);
 
-
     id = urlOrder.searchParams.get("id");
     let orderNumber = document.querySelector("#orderId");
     orderNumber.innerHTML = id;
