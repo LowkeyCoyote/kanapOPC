@@ -75,7 +75,7 @@ async function getIdFromUrl(){
 
 /*
     (void) renderProduct : create multiple HTML element in product page
-    informations are specifics for each page
+    informations are specific for each page
     param
     return à remplir
  */
@@ -128,7 +128,7 @@ function saveCart(cart){
 
 /*
     getCart : return an empty array if cart in localstorage is empty
-              return an JSON of the cart 
+    return an JSON of the cart 
 */
 
 function getCart(){
@@ -182,12 +182,12 @@ async function addProductInCart(){
 }
 
 /*
-    (void) checkIfProductExistInCart() : get the cart in localstorage,
-                                then check if the product that we are adding is already present in cart
-                                if he is present, add quantity
-                                if he is not present push product
-                                save cart
-    @param : product (object), containing all the informations about the product
+    (void) checkIfProductExistInCart() : get the cart in localstorage
+        @param : product (object), containing all the informations about the product
+        check if the product that we are adding is already present in cart
+        f he is present, add quantity
+        if he is not present push product
+        save cart
 */
 
 
@@ -208,7 +208,7 @@ async function checkIfProductExistInCart(product){
 
 /*
     (void) renderCart() : for each different product present in cart, create an HTML section 
-                    with spécific informations about the product
+                          with spécific informations about the product
 
 */
 
@@ -302,8 +302,8 @@ async function deleteFromCart(id, color){
 
 /*
     (void) modifyQuantityFromCart() : add event on change of quantity input
-                                check the closet itemId and itemColor (color and id of the selected product)
-                                then call modifyQuantityCart
+    check the closet itemId and itemColor (color and id of the selected product)
+    then call modifyQuantityCart
 
 */
 
