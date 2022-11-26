@@ -6,8 +6,7 @@ let ApiUrl = `${protocole}://${domain}/api/products/${id}`;
 
 
 /*
-    get Products
-    Launch an HTTP request and return a JSON
+    getProducts(url) : Launch an HTTP request and return a JSON
     @param : url (string) : URL for the request
     return response request (JSON)
  */
@@ -23,6 +22,10 @@ async function getProducts(url) {
     }
 }
 
+/*
+    getProductInfo() : retrieve and modify ID from URL with getIdFromUrl()
+    launch a request with getProducts(ApiUrl)
+*/
 
 async function getProductInfo(){
 
@@ -32,12 +35,8 @@ async function getProductInfo(){
     return await getProducts(ApiUrl);
 }
 
-
-
 /*
-    renderProducts (void)
-    used in index.js
-    create one HTML section for each product
+    (void) renderProducts() : create one HTML section for each product
     each section has specific information
  */
 
@@ -63,6 +62,10 @@ async function renderProducts() {
     items.innerHTML = html;
 }
 
+/*
+    (void) getIdFromUrl() :  retrieve id from tha actual URL
+*/
+
 async function getIdFromUrl(){
     const str = window.location.href;
     const urlProduct = new URL(str);
@@ -71,10 +74,7 @@ async function getIdFromUrl(){
 
 
 /*
-    renderProduct (void)
-    used in product.js
-
-    create multiple HTML element in product page
+    (void) renderProduct : create multiple HTML element in product page
     informations are specifics for each page
     param
     return à remplir
@@ -117,11 +117,10 @@ async function renderProduct() {
 
 
 /*
-    saveCart (void)
-    used in checkIfProductExistInCart()
+    (void) saveCart : used in checkIfProductExistInCart()
     @param : cart (JSON), objets present in cart
     save cart in string format in localstorage
- */
+*/
 
 function saveCart(cart){
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -143,7 +142,7 @@ function getCart(){
 }
 
 /*
-    addProductInCart : add product in cart
+    (void) addProductInCart() : add product in cart
     get informations about the product selected
     than check if this product is already present in cart in localstorage (chcheckIfProductExistInCartek)
 */
@@ -183,7 +182,7 @@ async function addProductInCart(){
 }
 
 /*
-    checkIfProductExistInCart : get the cart in localstorage,
+    (void) checkIfProductExistInCart() : get the cart in localstorage,
                                 then check if the product that we are adding is already present in cart
                                 if he is present, add quantity
                                 if he is not present push product
@@ -208,7 +207,7 @@ async function checkIfProductExistInCart(product){
 }
 
 /*
-    renderCart() : for each different product present in cart, create an HTML section 
+    (void) renderCart() : for each different product present in cart, create an HTML section 
                     with spécific informations about the product
 
 */
@@ -293,7 +292,6 @@ async function deleteFromCart(id, color){
 
     let itemToDelete = cart.findIndex((p) => (p.idProduct === id && p.colorProduct === color));
 
-
     cart.splice(itemToDelete, 1);
 
     saveCart(cart);
@@ -343,11 +341,7 @@ async function modifyQuantityCart(id, color, quantity){
 
     saveCart(cart);
     await getTotalPrice();
-
-
 }
-
-
 
 /*
     getTotalPrice() : change quantity of a product in cart 
@@ -369,15 +363,10 @@ async function getTotalPrice(){
     document.querySelector('#totalPrice').innerHTML = totalPrice;
 }
 
-
-
-
 /*
     getValuesFromInputs() (void) : get values from inputs
-
     add an event (on keyup) for each input in cart page
     then retrieve value in the input and use checkInputs()
-    
 */
 
 async function getValuesFromInputs(){
@@ -413,20 +402,12 @@ async function getValuesFromInputs(){
     })
 }
 
-
-
 /*
     checkInputs(input, type) : check validity of the inputs
     @param input : {string} value of the input
     @param type : {string} type of the input (name, city, ...)
-
     test each value with specific regex present in cart.js
-
-    
 */
-
-
-// une fonction par type switch 
 
 async function checkInputs(input, type){
 
@@ -500,11 +481,10 @@ async function checkInputs(input, type){
             }
             break;
     }
-
-    
 }
+
 /*
-    validateOrder() : (void) valid order
+    (void) validateOrder() : valid order
     if all the inputs are valids
     send a request (orderRequest())
 */
@@ -527,10 +507,10 @@ async function validateOrder(){
     
     })
 }
+
 /*
     getContactInfo() : 
     @return contact object with informations about the client
-
 */
 
 async function getContactInfo(){
@@ -564,11 +544,11 @@ async function getArrayProduct(){
     return arrayProductId;
 }
 
-    /*
-        orderRequest() : 
-        Send a POST request
-        BodyRequest object with array of productId and contact object
-    */
+/*
+    (void) orderRequest() : 
+    Send a POST request
+    BodyRequest object with array of productId and contact object
+ */
 
 async function orderRequest(){
 
@@ -599,6 +579,12 @@ async function orderRequest(){
         alert("Une erreur est survenue, merci de revenir plus tard.");
       }); 
 }
+
+/*
+    (void) showOrder()
+    redirect to order page
+    show the number of te order
+*/
 
 
 async function showOrder(){
