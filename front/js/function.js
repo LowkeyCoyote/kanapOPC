@@ -144,7 +144,7 @@ function getCart(){
 /*
     (void) addProductInCart() : add product in cart
     get informations about the product selected
-    than check if this product is already present in cart in localstorage (chcheckIfProductExistInCartek)
+    than check if this product is already present in cart in localstorage (checkIfProductExistInCartek)
 */
 
 
@@ -281,7 +281,7 @@ async function supressItemFromCart(){
 }
 
 /*
-    deleteFromCart() : change quantity of a product in cart 
+    (void) deleteFromCart() : change quantity of a product in cart 
     @param : 
     id = id of the product
     color = color of the product
@@ -301,7 +301,7 @@ async function deleteFromCart(id, color){
 
 
 /*
-    modifyQuantityFromCart() : add event on change of quantity input
+    (void) modifyQuantityFromCart() : add event on change of quantity input
                                 check the closet itemId and itemColor (color and id of the selected product)
                                 then call modifyQuantityCart
 
@@ -325,7 +325,7 @@ async function modifyQuantityFromCart(){
 
 
 /*
-    modifyQuantityCart() : change quantity of a product in cart 
+    (void) modifyQuantityCart() : change quantity of a product in cart 
     @param : 
     id = id of the product
     color = color of the product
@@ -344,7 +344,7 @@ async function modifyQuantityCart(id, color, quantity){
 }
 
 /*
-    getTotalPrice() : change quantity of a product in cart 
+    (void) getTotalPrice() : change quantity of a product in cart 
     @param : get cart, then loop and add priceUnit * quantity
     change dynamically price
 */
@@ -364,7 +364,7 @@ async function getTotalPrice(){
 }
 
 /*
-    getValuesFromInputs() (void) : get values from inputs
+    (void) getValuesFromInputs() (void) : get values from inputs
     add an event (on keyup) for each input in cart page
     then retrieve value in the input and use checkInputs()
 */
@@ -403,7 +403,7 @@ async function getValuesFromInputs(){
 }
 
 /*
-    checkInputs(input, type) : check validity of the inputs
+    (void) checkInputs(input, type) : check validity of the inputs
     @param input : {string} value of the input
     @param type : {string} type of the input (name, city, ...)
     test each value with specific regex present in cart.js
